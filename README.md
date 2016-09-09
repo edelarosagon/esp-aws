@@ -1,6 +1,11 @@
 ### How to get started on AWS IoT with NodeMCU for less than 5 euros
+* Start with the NodeMCU unplugged
 
 * Download [NodeMCU Driver](https://www.dropbox.com/sh/nqh9yqm9pd9hgg6/AAD0_wmnLMD3OxDO3TCsj4PLa?dl=0) CH341SER_*yourOS* and install it
+
+* Connect the NodeMCU board to the USB port
+> ls /dev/tty* should show something like /dev/tty.wchusbserial1420
+
 
 * If you want to play around with LUA, download [ESPlorer](http://esp8266.ru/esplorer/)
 
@@ -24,3 +29,9 @@ File>Preference and copy the URL below to Additional Board Manager URLs
 * Log in to your AWS Account and add a Thing. Call your thing ESPNODE
 
 * Edit keys.cpp and fill in your AWS Account and WIFI settings
+
+* Compile and run your Arduino sketch
+
+* Create a new Lambda 
+
+> Rule for the trigger : SELECT * FROM '$aws/things/ESPNODE/shadow/update/accepted' WHERE state.reported.humidity > 50
