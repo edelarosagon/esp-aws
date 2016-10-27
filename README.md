@@ -22,7 +22,7 @@ File>Preference and copy the URL below to Additional Board Manager URLs
 
 * Install [AWS SDK](https://www.dropbox.com/sh/nqh9yqm9pd9hgg6/AAD0_wmnLMD3OxDO3TCsj4PLa?dl=0) as a Arduino Library
 
-* Install your sensor library if any (in our case DHT22)
+* Install your sensor library if any (in our case a capacitive sensor)
 
 * Download aws-esp-ino.zip and unzip it to your Arduino folder
 
@@ -34,4 +34,4 @@ File>Preference and copy the URL below to Additional Board Manager URLs
 
 * Create a new Lambda 
 
-> Rule for the trigger : SELECT * FROM '$aws/things/ESPNODE/shadow/update/accepted' WHERE state.reported.humidity > 50
+> Rule for the trigger : SELECT * FROM '$aws/things/ESPNODE/shadow/update/accepted' WHERE state.reported.clic = 1
